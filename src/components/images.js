@@ -1,15 +1,12 @@
 import React from "react";
-import "./FriendCard.css";
+import "./Images.css";
 
 const Images = props => (
   <div className="card">
     <div className="img-container">
-      <img alt={props.name} src={props.image} />
-    </div>
-    <div className="content">
       <ul>
         <li>
-          <strong>Name:</strong> {props.name}
+          <img alt={props.id} src={props.image} />
         </li>
       </ul>
     </div>

@@ -1,19 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Images from "./components/Images";
+import Wrapper from "./components/Wrapper";
+import Images from "./images.json";
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    images
+  };
+
+  displayImages = id => {
+    const images = this.state.images.filter(image => image.id != id);
+    this.setState({ images });
+  };
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Wrapper>
+
+        {this.state.Images.map(image => (
+          <Images
+            id={Images.id}
+            key={Images.id}
+            image={Images.image}
+          />
+        ))}
+
+      </Wrapper>
     );
   }
 }
